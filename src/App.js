@@ -1,10 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import Albums from './pages/Albums';
 import Photocards from './pages/Photocards';
 import Contact from './pages/Contact';
-import Header from './components/Header';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Album1 from './pages/album/Album1';
+import Album2 from './pages/album/Album2';
+import Album16 from './pages/album/Album16';
+import Album17 from './pages/album/Album17';
+import Album18 from './pages/album/Album18';
+import Album19 from './pages/album/Album19';
 import Photocard1 from './pages/photocards/Photocard1';
 import Photocard2 from './pages/photocards/Photocard2';
 import Photocard3 from './pages/photocards/Photocard3';
@@ -29,6 +38,14 @@ const App = () => {
           <Route path="/albums" element={<Albums />} />
           <Route path="/photocards" element={<Photocards />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/album/1" element={<Album1 />} />
+          <Route path="/album/2" element={<Album2 />} />
+          <Route path="/album/16" element={<Album16 />} />
+          <Route path="/album/17" element={<Album17 />} />
+          <Route path="/album/18" element={<Album18 />} />
+          <Route path="/album/19" element={<Album19 />} />
           <Route path="/photocards/1" element={<Photocard1 />} />
           <Route path="/photocards/2" element={<Photocard2 />} />
           <Route path="/photocards/3" element={<Photocard3 />} />
@@ -43,6 +60,7 @@ const App = () => {
           <Route path="/photocards/12" element={<Photocard12 />} />
           <Route path="/photocards/13" element={<Photocard13 />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

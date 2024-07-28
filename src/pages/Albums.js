@@ -1,4 +1,6 @@
+// src/components/Albums.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import album1 from '../imagens/album/album1.jpg';
 import album2 from '../imagens/album/album2.jpg';
 import album3 from '../imagens/album/album3.jpg';
@@ -45,18 +47,18 @@ const albums = [
 
 const Albums = () => {
   return (
-    <div className="flex flex-col items-center p-4 bg-gray-100 min-h-screen">
+    <div className="flex flex-col items-center p-4 bg-white min-h-screen">
       <h1 className="text-4xl font-bold text-gray-500 mb-8">Albums Seventeen</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         {albums.map(album => (
-          <div key={album.id} className="bg-white rounded-lg shadow-lg p-4">
+          <Link to={`/album/${album.id}`} key={album.id} className="bg-white rounded-lg hover:bg-gray-200 transition duration-300 p-4">
             <div className="w-full h-64 flex items-center justify-center">
               <img src={album.imageUrl} alt={album.title} className="w-full h-full object-cover rounded-lg" />
             </div>
             <div className="mt-4 text-center">
               <h2 className="text-xl font-semibold">{album.title}</h2>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

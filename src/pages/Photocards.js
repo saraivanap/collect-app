@@ -32,11 +32,11 @@ const photocards = [
 
 const Photocards = () => {
   return (
-    <div className="flex flex-col items-center p-4 bg-gray-100 min-h-screen">
+    <div className="flex flex-col items-center p-4 bg-white min-h-screen">
       <h1 className="text-4xl font-bold text-gray-500 mb-8">Photocards Seventeen</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         {photocards.slice(0, 10).map(photocard => (
-          <div key={photocard.id} className="bg-white rounded-lg shadow-lg p-4">
+          <div key={photocard.id} className="bg-white rounded-lg hover:bg-gray-200 transition duration-300 p-4">
             <Link to={`/photocards/${photocard.id}`}>
               <div className="w-full h-64 flex items-center justify-center">
                 <img src={photocard.imageUrl} alt={photocard.title} className="w-full h-full object-cover rounded-lg" />
@@ -51,7 +51,7 @@ const Photocards = () => {
       </div>
       <div className="flex justify-center gap-8 mt-8">
         {photocards.slice(10).map(photocard => (
-          <div key={photocard.id} className="bg-white rounded-lg shadow-lg p-4">
+          <div key={photocard.id} className="bg-white rounded-lg hover:bg-gray-200 transition duration-300 p-4">
             <Link to={`/photocards/${photocard.id}`}>
               <div className="w-full h-64 flex items-center justify-center">
                 <img src={photocard.imageUrl} alt={photocard.title} className="w-full h-full object-cover rounded-lg" />
