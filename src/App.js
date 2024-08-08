@@ -7,6 +7,7 @@ import Albums from './pages/Albums';
 import Photocards from './pages/Photocards';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
 import Register from './pages/Register';
 import Album1 from './pages/album/Album1';
 import Album2 from './pages/album/Album2';
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/photocards" element={<Photocards />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/register" element={<Register />} />
           <Route path="/album/1" element={<Album1 />} />
           <Route path="/album/2" element={<Album2 />} />
