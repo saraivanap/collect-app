@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Albums from './pages/Albums';
 import Photocards from './pages/Photocards';
-import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
@@ -38,7 +37,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/albums" element={<Albums />} />
           <Route path="/photocards" element={<Photocards />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/register" element={<Register />} />
