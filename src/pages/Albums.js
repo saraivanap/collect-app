@@ -51,7 +51,7 @@ const Albums = () => {
       <h1 className="text-4xl font-bold text-gray-500 mb-8">Albums Seventeen</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         {albums.map(album => (
-          <Link to={`/album/${album.id}`} key={album.id} className="bg-white rounded-lg hover:bg-gray-200 transition duration-300 p-4">
+          <Link to={`/album/${album.id}`} key={album.id} className="bg-white rounded-lg hover:bg-gray-100 transition duration-300 p-4">
             <div className="w-full h-64 flex items-center justify-center">
               <img src={album.imageUrl} alt={album.title} className="w-full h-full object-cover rounded-lg" />
             </div>

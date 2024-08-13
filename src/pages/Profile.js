@@ -13,7 +13,7 @@ const Profile = () => {
             <p className="text-gray-700">
               Aqui você pode adicionar os itens que deseja adquirir.
             </p>
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300">
+            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300">
               Editar Wishlist
             </button>
           </div>
@@ -24,7 +24,7 @@ const Profile = () => {
             <p className="text-gray-700">
               Aqui você pode adicionar álbuns que você possui em sua coleção.
             </p>
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300">
+            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300">
               Editar Coleção de Álbuns
             </button>
           </div>
@@ -35,7 +35,7 @@ const Profile = () => {
             <p className="text-gray-700">
               Aqui você pode adicionar photocards que você possui.
             </p>
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300">
+            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300">
               Editar Coleção de Photocards
             </button>
           </div>
@@ -46,7 +46,7 @@ const Profile = () => {
             <p className="text-gray-700">
               Aqui você pode listar os itens que está vendendo.
             </p>
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300">
+            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300">
               Editar Vendas
             </button>
           </div>
@@ -82,10 +82,10 @@ const Profile = () => {
 
           {/* Botão de Seguir e Editar Perfil */}
           <div className="flex space-x-2">
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300">
+            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300">
               Editar Perfil
             </button>
-            <button className="bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-400">
+            <button className="bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-400 transition duration-300">
               Seguir
             </button>
           </div>
@@ -98,7 +98,7 @@ const Profile = () => {
 
         {/* Tag interativa */}
         <div className="my-4">
-          <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-blue-200">
+          <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-blue-200 transition duration-300">
             #InteractiveTag
           </span>
         </div>
@@ -117,9 +117,9 @@ const Profile = () => {
       {/* Seções adicionais com Abas */}
       <div className="max-w-3xl mx-auto mt-8 p-4 bg-white rounded-lg shadow-md">
         {/* Abas */}
-        <div className="flex space-x-4 border-b border-gray-300 mb-4">
+        <div className="flex space-x-4 border-b border-gray-300 mb-4 ">
           <button
-            className={`pb-2 ${activeTab === 'wishlist' ? 'border-b-2 border-indigo-500 text-indigo-500' : 'text-gray-600'}`}
+            className={`pb-2 ${activeTab === 'wishlist' ? 'border-b-2 border-indigo-500 text-indigo-500' : 'text-gray-600 '}`}
             onClick={() => setActiveTab('wishlist')}
           >
             Wishlist
@@ -144,7 +144,7 @@ const Profile = () => {
           </button>
         </div>
 
-        {/* Conteúdo das Abas */}
+        {/* conteúdo das abas */}
         {renderTabContent()}
       </div>
     </div>
