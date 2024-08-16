@@ -1,9 +1,22 @@
-// src/Profile.js
-
 import React, { useState } from 'react';
+import EditProfile from './EditProfile';
 
 const Profile = () => {
+  const [isEditing, setIsEditing] = useState(false);
   const [activeTab, setActiveTab] = useState('wishlist');
+  const [userProfile, setUserProfile] = useState({
+    name: 'Nome do Usuário',
+    username: '@username',
+    bio: 'Esta é uma breve biografia do usuário. Aqui você pode adicionar detalhes como profissão, hobbies ou uma breve descrição.',
+    tags: ['#InteractiveTag'],
+    profilePic: 'https://via.placeholder.com/150',
+    coverPic: 'https://via.placeholder.com/1920x600',
+  });
+
+  const handleSaveProfile = (updatedProfile) => {
+    setUserProfile(updatedProfile);
+    setIsEditing(false);
+  };
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -44,10 +57,10 @@ const Profile = () => {
         return (
           <div className="flex justify-between items-center">
             <p className="text-gray-700">
-              Aqui você pode listar os itens que está vendendo.
+              Aqui você pode listar os itens que está vendendo ou trocando.
             </p>
             <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300">
-              Editar Vendas
+              Editar Vendas/Trocas
             </button>
           </div>
         );
@@ -56,12 +69,16 @@ const Profile = () => {
     }
   };
 
+  if (isEditing) {
+    return <EditProfile userProfile={userProfile} onSave={handleSaveProfile} />;
+  }
+
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Imagem de Capa */}
       <div
         className="bg-cover bg-center h-64 w-full"
-        style={{ backgroundImage: "url('https://via.placeholder.com/1920x600')" }}
+        style={{ backgroundImage: `url(${userProfile.coverPic})` }}
       ></div>
 
       {/* Detalhes do Perfil */}
@@ -71,18 +88,21 @@ const Profile = () => {
           <div className="flex items-center">
             <img
               className="w-32 h-32 object-cover rounded-full border-4 border-white -mt-16"
-              src="https://via.placeholder.com/150"
+              src={userProfile.profilePic}
               alt="Avatar"
             />
             <div className="ml-4">
-              <h2 className="text-2xl font-bold text-gray-900">Nome do Usuário</h2>
-              <p className="text-gray-600">@username</p>
+              <h2 className="text-2xl font-bold text-gray-900">{userProfile.name}</h2>
+              <p className="text-gray-600">{userProfile.username}</p>
             </div>
           </div>
 
-          {/* Botão de Seguir e Editar Perfil */}
+          {/* Botão de Editar Perfil */}
           <div className="flex space-x-2">
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300">
+            <button
+              className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300"
+              onClick={() => setIsEditing(true)}
+            >
               Editar Perfil
             </button>
             <button className="bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-400 transition duration-300">
@@ -92,15 +112,18 @@ const Profile = () => {
         </div>
 
         {/* Biografia */}
-        <p className="mt-4 text-gray-700">
-          Esta é uma breve biografia do usuário. Aqui você pode adicionar detalhes como profissão, hobbies ou uma breve descrição.
-        </p>
+        <p className="mt-4 text-gray-700">{userProfile.bio}</p>
 
-        {/* Tag interativa */}
+        {/* Tags interativas */}
         <div className="my-4">
-          <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-blue-200 transition duration-300">
-            #InteractiveTag
-          </span>
+          {userProfile.tags.map((tag, index) => (
+            <span
+              key={index}
+              className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-blue-200 transition duration-300 mr-2"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
 
         {/* Seguidores e Seguindo */}
@@ -117,9 +140,9 @@ const Profile = () => {
       {/* Seções adicionais com Abas */}
       <div className="max-w-3xl mx-auto mt-8 p-4 bg-white rounded-lg shadow-md">
         {/* Abas */}
-        <div className="flex space-x-4 border-b border-gray-300 mb-4 ">
+        <div className="flex space-x-4 border-b border-gray-300 mb-4">
           <button
-            className={`pb-2 ${activeTab === 'wishlist' ? 'border-b-2 border-indigo-500 text-indigo-500' : 'text-gray-600 '}`}
+            className={`pb-2 ${activeTab === 'wishlist' ? 'border-b-2 border-indigo-500 text-indigo-500' : 'text-gray-600'}`}
             onClick={() => setActiveTab('wishlist')}
           >
             Wishlist
@@ -140,11 +163,11 @@ const Profile = () => {
             className={`pb-2 ${activeTab === 'sales' ? 'border-b-2 border-indigo-500 text-indigo-500' : 'text-gray-600'}`}
             onClick={() => setActiveTab('sales')}
           >
-            Sales
+            Sales/Trades
           </button>
         </div>
 
-        {/* conteúdo das abas */}
+        {/* Conteúdo das abas */}
         {renderTabContent()}
       </div>
     </div>

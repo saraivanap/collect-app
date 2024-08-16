@@ -25,7 +25,7 @@ const Home = () => {
     <div className="flex flex-col items-center justify-center h-full space-y-8">
       
       {/* Banner de Destaque */}
-      <div className="w-full h-64 bg-cover bg-center" style={{ backgroundImage: "url('/imagens/home/banner.jpg')" }}>
+      <div className="w-full h-64 bg-cover bg-center" style={{ backgroundImage: "url('/imagens/home/banner1.jpg')" }}>
         <div className="bg-black bg-opacity-50 w-full h-full flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white">Explore sua coleção SEVENTEEN</h1>
         </div>
