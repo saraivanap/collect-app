@@ -8,6 +8,7 @@ import Photocards from './pages/Photocards';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
+import EditWishlist from './pages/EditWishlist';
 import Register from './pages/Register';
 import Album1 from './pages/album/Album1';
 import Album2 from './pages/album/Album2';
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/edit-wishlist" element={<EditWishlist />} />
           <Route path="/register" element={<Register />} />
           <Route path="/album/1" element={<Album1 />} />
           <Route path="/album/2" element={<Album2 />} />

@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import EditProfile from './EditProfile';
+import EditWishlist from './EditWishlist';
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
+  const [isEditingWishlist, setIsEditingWishlist] = useState(false);
   const [activeTab, setActiveTab] = useState('wishlist');
   const [userProfile, setUserProfile] = useState({
     name: 'Nome do Usuário',
     username: '@username',
     bio: 'Esta é uma breve biografia do usuário. Aqui você pode adicionar detalhes como profissão, hobbies ou uma breve descrição.',
-    tags: ['#InteractiveTag'],
+    tags: ['#Tag'],
     profilePic: 'https://via.placeholder.com/150',
     coverPic: 'https://via.placeholder.com/1920x600',
+    wishlist: [
+      { id: 1, name: 'Item 1', image: 'https://via.placeholder.com/150' },
+      { id: 2, name: 'Item 2', image: 'https://via.placeholder.com/150' },
+    ],
   });
 
   const handleSaveProfile = (updatedProfile) => {
@@ -18,17 +24,33 @@ const Profile = () => {
     setIsEditing(false);
   };
 
+  const handleSaveWishlist = (updatedWishlist) => {
+    setUserProfile({ ...userProfile, wishlist: updatedWishlist });
+    setIsEditingWishlist(false);
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'wishlist':
         return (
-          <div className="flex justify-between items-center">
-            <p className="text-gray-700">
-              Aqui você pode adicionar os itens que deseja adquirir.
-            </p>
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300">
-              Editar Wishlist
-            </button>
+          <div>
+            <div className="flex justify-between items-center mb-4">
+              <p className="text-gray-700">Itens da sua wishlist:</p>
+              <button
+                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition duration-300"
+                onClick={() => setIsEditingWishlist(true)}
+              >
+                Editar Wishlist
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {userProfile.wishlist.map((item) => (
+                <div key={item.id} className="bg-white p-4 rounded-lg shadow-md">
+                  <img src={item.image} alt={item.name} className="w-full h-32 object-cover rounded-md mb-2" />
+                  <p className="text-gray-700 font-semibold text-center">{item.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
         );
       case 'album':
@@ -71,6 +93,10 @@ const Profile = () => {
 
   if (isEditing) {
     return <EditProfile userProfile={userProfile} onSave={handleSaveProfile} />;
+  }
+
+  if (isEditingWishlist) {
+    return <EditWishlist wishlist={userProfile.wishlist} onSave={handleSaveWishlist} />;
   }
 
   return (
@@ -138,7 +164,7 @@ const Profile = () => {
       </div>
 
       {/* Seções adicionais com Abas */}
-      <div className="max-w-3xl mx-auto mt-8 p-4 bg-white rounded-lg shadow-md">
+      <div className="max-w-3xl mx-auto mt-8 mb-8 p-4 bg-white rounded-lg shadow-md">
         {/* Abas */}
         <div className="flex space-x-4 border-b border-gray-300 mb-4">
           <button
