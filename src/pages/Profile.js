@@ -7,7 +7,7 @@ const Profile = () => {
   const [isEditingWishlist, setIsEditingWishlist] = useState(false);
   const [activeTab, setActiveTab] = useState('wishlist');
   const [userProfile, setUserProfile] = useState({
-    name: 'Nome do Usuário',
+    name: 'usuário',
     username: '@username',
     bio: 'Esta é uma breve biografia do usuário. Aqui você pode adicionar detalhes como profissão, hobbies ou uma breve descrição.',
     tags: ['#Tag'],
@@ -164,7 +164,7 @@ const Profile = () => {
       </div>
 
       {/* Seções adicionais com Abas */}
-      <div className="max-w-3xl mx-auto mt-8 mb-8 p-4 bg-white rounded-lg shadow-md">
+      <div className="max-w-3xl mx-auto mt-8 mb-5 p-4 bg-white rounded-lg shadow-md">
         {/* Abas */}
         <div className="flex space-x-4 border-b border-gray-300 mb-4">
           <button
